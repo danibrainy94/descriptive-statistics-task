@@ -1,5 +1,6 @@
-/* 1 */
+                    /* 1 */
 
+// A class that has class/static properties and methods, and  how to use/access them.
 class Car {
     // Class (static) property
     static totalCars = 0;
@@ -44,7 +45,7 @@ console.log(Car.displayTotalCars())
 
 
 
-/* 2 */
+                    /* 2 */
 
 //code that computes descriptive statistics.
 
@@ -148,5 +149,31 @@ console.log(newData.getMean)
 console.log(newData.getMode())
 console.log(newData.getMedian())
 
+
+
+
+                    /* 3 */
+// A simple Movie renting API
+
+class Movie {
+    constructor(title, genre, availableCopies) {
+        this.title = title;
+        this.genre = genre;
+        this.availableCopies = availableCopies;
+    }
+}
+
+class MovieStore {
+    constructor() {
+        this.movies = [
+        new Movie('Inception', 'Sci-Fi', 5),
+        new Movie('The Shawshank Redemption', 'Drama', 3),
+        new Movie('The Dark Knight', 'Action', 7),
+        ]
+        this.rentedMovies = []
+    }
+
+    
+}
 
 
