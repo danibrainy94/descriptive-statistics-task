@@ -60,28 +60,29 @@ class sampleData {
         return sortedData[sortedData.length - 1] - sortedData[0];
     }
 
-  calculateInterquartileRange() {
-    const sortedData = this.data.slice().sort((a, b) => a - b);
-    const lowerQ = this.calculatePercentile(sortedData, 0.25);
-    const upperQ = this.calculatePercentile(sortedData, 0.75);
-    return upperQ - lowerQ;
-  }
+    calculateInterquartileRange() {
+        const sortedData = this.data.slice().sort((a, b) => a - b);
+        const lowerQ = this.calculatePercentile(sortedData, 0.25);
+        const upperQ = this.calculatePercentile(sortedData, 0.75);
+        return upperQ - lowerQ;
+    }
 
-  calculateMeanAbsoluteDeviation() {
-    const mean = this.calculateMean();
-    const absoluteDeviations = this.data.map(value => Math.abs(value - mean));
-    return absoluteDeviations.reduce((acc, value) => acc + value, 0) / this.data.length;
-  }
+    calculateMeanAbsoluteDeviation() {
+        const mean = this.calculateMean();
+        const absoluteDeviations = this.data.map(value => Math.abs(value - mean));
+        return absoluteDeviations.reduce((acc, value) => acc + value, 0) / this.data.length;
+    }
 
-  calculateVariance() {
-    const mean = this.calculateMean();
-    const squaredDifferences = this.data.map(value => Math.pow(value - mean, 2));
-    return squaredDifferences.reduce((acc, value) => acc + value, 0) / this.data.length;
-  }
+    calculateVariance() {
+        const mean = this.calculateMean();
+        const squaredDifferences = this.data.map(value => Math.pow(value - mean, 2));
+        return squaredDifferences.reduce((acc, value) => acc + value, 0) / this.data.length;
+    }
 
-  calculateStandardDeviation() {
-    return Math.sqrt(this.calculateVariance());
-  }
+    calculateStandardDeviation() {
+        let standardDeviationValue = Math.sqrt(this.calculateVariance())
+        return standardDeviationValue
+    }
 
 
 
