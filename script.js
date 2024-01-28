@@ -128,7 +128,7 @@ class sampleData {
         return varianceValue
     }
 
-    getStandardDeviation() {
+    getstandardDeviation() {
         let standardDeviationValue = Math.sqrt(this.calculateVariance())
         return standardDeviationValue
     }
@@ -145,90 +145,17 @@ const newData = new sampleData(dataSet)
 
 
 // Calculating the measures of central  tendency in a given data set
-console.log(newData.getMean)
+console.log(newData.getMean())
 console.log(newData.getMode())
 console.log(newData.getMedian())
 
 
-
+// Calculating the measures of central  tendency in a given data set
+console.log(getRange())
+console.log(getInterquartileRange)
+console.log(getMeanAbsoluteDeviation())
+console.log(getstandardDeviation())
+console.log(getVariance())
 
                     /* 3 */
-                    
-// A simple Movie renting API
-class Movie {
-    constructor(title, genre, availableCopies) {
-        this.title = title;
-        this.genre = genre;
-        this.availableCopies = availableCopies;
-    }
-}
-
-class MovieStore {
-    constructor() {
-        this.movies = [
-        new Movie('Inception', 'Sci-Fi', 5),
-        new Movie('The Shawshank Redemption', 'Drama', 3),
-        new Movie('The Dark Knight', 'Action', 7),
-        ]
-        this.rentedMovies = []
-    }
-
-    rentMovie(title) {
-        const movieIndex = this.movies.findIndex(movie => movie.title === title)
-
-        if (movieIndex !== -1 && this.movies[movieIndex].availableCopies > 0) {
-        this.movies[movieIndex].availableCopies--
-        this.rentedMovies.push(this.movies[movieIndex])
-        return `${title} rented successfully.`
-        } else {
-        return `Sorry, ${title} is not available for rent or no copies left.`
-        }
-    }
-
-    returnMovie(title) {
-        const rentedMovieIndex = this.rentedMovies.findIndex(movie => movie.title === title)
-
-        if (rentedMovieIndex !== -1) {
-        this.movies.push(this.rentedMovies[rentedMovieIndex])
-        this.rentedMovies.splice(rentedMovieIndex, 1)
-        return `${title} returned successfully.`
-        } else {
-        return `Error: ${title} was not rented from this store.`
-        }
-    }
-
-    displayAvailableMovies() {
-        return this.movies.map(movie => `${movie.title} (${movie.genre}) - Available Copies: ${movie.availableCopies}`).join('\n')
-    }
-
-    displayRentedMovies() {
-        return this.rentedMovies.map(movie => `${movie.title} (${movie.genre})`).join('\n')
-    }
-}
-
-
-
-// Usage of the movie renting API
-const movieStore = new MovieStore()
-
-
-console.log(movieStore.displayAvailableMovies())
-
-
-console.log(movieStore.rentMovie('Inception'))
-console.log(movieStore.rentMovie('The Dark Knight'))
-console.log(movieStore.rentMovie('The Matrix')) // movie not available
-
-
-console.log(movieStore.displayAvailableMovies())
-console.log(movieStore.displayRentedMovies())
-
-
-console.log(movieStore.returnMovie('Inception'))
-console.log(movieStore.returnMovie('The Matrix')) // movie not rented from this store
-
-
-console.log(movieStore.displayAvailableMovies())
-console.log(movieStore.displayRentedMovies())
-
 
