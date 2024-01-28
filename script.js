@@ -185,7 +185,25 @@ class MovieStore {
         }
     }
 
-    
+    returnMovie(title) {
+        const rentedMovieIndex = this.rentedMovies.findIndex(movie => movie.title === title)
+
+        if (rentedMovieIndex !== -1) {
+        this.movies.push(this.rentedMovies[rentedMovieIndex])
+        this.rentedMovies.splice(rentedMovieIndex, 1)
+        return `${title} returned successfully.`
+        } else {
+        return `Error: ${title} was not rented from this store.`;
+        }
+    }
+
+    displayAvailableMovies() {
+        return this.movies.map(movie => `${movie.title} (${movie.genre}) - Available Copies: ${movie.availableCopies}`).join('\n')
+    }
+
+    displayRentedMovies() {
+        return this.rentedMovies.map(movie => `${movie.title} (${movie.genre})`).join('\n')
+    }
 }
 
 
