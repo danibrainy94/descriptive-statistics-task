@@ -1,5 +1,30 @@
 /* 1 */
 
+class Car {
+    // Class (static) property
+    static totalCars = 0;
+
+    // Instance properties
+    constructor(make, model) {
+        this.make = make;
+        this.model = model;
+        // Incrementing the totalCars count for each instance created
+        Car.totalCars++;
+    }
+
+    // Instance method
+    displayCarInfo() {
+        return `${this.make} ${this.model}`;
+    }
+
+    // Class (static) method
+    static displayTotalCars() {
+        return `Total Cars: ${Car.totalCars}`;
+    }
+}
+
+
+
 /* 2 */
 
 //code that computes descriptive statistics.
@@ -55,31 +80,35 @@ class sampleData {
 
 
 
-    calculateRange() {
+    getRange() {
         const sortedData = this.data.slice().sort((a, b) => a - b);
-        return sortedData[sortedData.length - 1] - sortedData[0];
+        let rangeValue = sortedData[sortedData.length - 1] - sortedData[0];
+        return rangeValue
     }
 
-    calculateInterquartileRange() {
-        const sortedData = this.data.slice().sort((a, b) => a - b);
-        const lowerQ = this.calculatePercentile(sortedData, 0.25);
-        const upperQ = this.calculatePercentile(sortedData, 0.75);
-        return upperQ - lowerQ;
+    getInterquartileRange() {
+        const sortedData = this.data.slice().sort((a, b) => a - b)
+        const lowerQ = this.calculatePercentile(sortedData, 0.25)
+        const upperQ = this.calculatePercentile(sortedData, 0.75)
+        let InterquartileRangeValue = upperQ - lowerQ
+        return InterquartileRangeValue
     }
 
-    calculateMeanAbsoluteDeviation() {
+    getMeanAbsoluteDeviation() {
         const mean = this.calculateMean();
         const absoluteDeviations = this.data.map(value => Math.abs(value - mean));
-        return absoluteDeviations.reduce((acc, value) => acc + value, 0) / this.data.length;
+        let meanAbsoluteDeviationValue = absoluteDeviations.reduce((acc, value) => acc + value, 0) / this.data.length
+        return meanAbsoluteDeviationValue
     }
 
-    calculateVariance() {
+    getVariance() {
         const mean = this.calculateMean();
-        const squaredDifferences = this.data.map(value => Math.pow(value - mean, 2));
-        return squaredDifferences.reduce((acc, value) => acc + value, 0) / this.data.length;
+        const squaredDifferences = this.data.map(value => Math.pow(value - mean, 2))
+        let varianceValue = squaredDifferences.reduce((acc, value) => acc + value, 0) / this.data.length
+        return varianceValue
     }
 
-    calculateStandardDeviation() {
+    getStandardDeviation() {
         let standardDeviationValue = Math.sqrt(this.calculateVariance())
         return standardDeviationValue
     }
@@ -96,9 +125,9 @@ const newData = new sampleData(dataSet)
 
 
 // Calculating the measures of central  tendency in a given data set
-console.log(newData.getMean);
-console.log(newData.getMode());
-console.log(newData.getMedian());
+console.log(newData.getMean)
+console.log(newData.getMode())
+console.log(newData.getMedian())
 
 
 
