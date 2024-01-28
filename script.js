@@ -23,6 +23,12 @@ class Car {
     }
 }
 
+// Creating instances of the Car class
+const car1 = new Car("Toyota", "Camry");
+const car2 = new Car("Honda", "Accord");
+
+
+
 
 
 /* 2 */
