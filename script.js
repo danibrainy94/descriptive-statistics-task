@@ -14,18 +14,31 @@ class Car {
 
     // Instance method
     displayCarInfo() {
-        return `${this.make} ${this.model}`;
+        return `${this.make} ${this.model}`
     }
 
     // Class (static) method
     static displayTotalCars() {
-        return `Total Cars: ${Car.totalCars}`;
+        return `Total Cars: ${Car.totalCars}`
     }
 }
 
 // Creating instances of the Car class
-const car1 = new Car("Toyota", "Camry");
-const car2 = new Car("Honda", "Accord");
+const car1 = new Car("Toyota", "Camry")
+const car2 = new Car("Honda", "Accord")
+
+
+// Accessing instance properties and method
+console.log("Car 1:", car1.displayCarInfo())
+
+// Accessing class (static) property and method
+console.log(Car.displayTotalCars())
+
+// Creating another instance of the Car class
+let car3 = new Car("Ford", "Mustang")
+
+// Accessing class (static) property and method after creating another instance
+console.log(Car.displayTotalCars())
 
 
 
