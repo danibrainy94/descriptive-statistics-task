@@ -153,8 +153,8 @@ console.log(newData.getMedian())
 
 
                     /* 3 */
+                    
 // A simple Movie renting API
-
 class Movie {
     constructor(title, genre, availableCopies) {
         this.title = title;
@@ -193,7 +193,7 @@ class MovieStore {
         this.rentedMovies.splice(rentedMovieIndex, 1)
         return `${title} returned successfully.`
         } else {
-        return `Error: ${title} was not rented from this store.`;
+        return `Error: ${title} was not rented from this store.`
         }
     }
 
@@ -205,5 +205,30 @@ class MovieStore {
         return this.rentedMovies.map(movie => `${movie.title} (${movie.genre})`).join('\n')
     }
 }
+
+
+
+// Usage of the movie renting API
+const movieStore = new MovieStore()
+
+
+console.log(movieStore.displayAvailableMovies())
+
+
+console.log(movieStore.rentMovie('Inception'))
+console.log(movieStore.rentMovie('The Dark Knight'))
+console.log(movieStore.rentMovie('The Matrix')) // movie not available
+
+
+console.log(movieStore.displayAvailableMovies())
+console.log(movieStore.displayRentedMovies())
+
+
+console.log(movieStore.returnMovie('Inception'))
+console.log(movieStore.returnMovie('The Matrix')) // movie not rented from this store
+
+
+console.log(movieStore.displayAvailableMovies())
+console.log(movieStore.displayRentedMovies())
 
 
